@@ -1,0 +1,17 @@
+name: "ProofHouse Scan"
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  proofhouse:
+    runs-on: ubuntu-latest
+    concurrency: proofhouse-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: jugurtha/proofhouse-scan/action@v1
+        with:
+          api_url: https://proofhouse.subjug.tech
+          api_token: ${{ secrets.PROOFHOUSE_SCAN_INGEST_TOKEN }}
