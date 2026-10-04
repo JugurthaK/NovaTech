@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - uses: jugurtha/proofhouse-scan/action@v1
+      - uses: jugurthak/proofhouse-scan/action@v1
         with:
           api_url: https://proofhouse.subjug.tech
           api_token: ${{ secrets.PROOFHOUSE_SCAN_INGEST_TOKEN }}
